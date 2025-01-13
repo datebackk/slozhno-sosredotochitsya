@@ -1,5 +1,422 @@
-/* Основные стили проекта. Это стили для темы, которую вы верстаете первой. */
-
 .page {
-  /* сохраните в разметке и стилях класс page. На его основе работает скрипт. */
+    background-attachment: fixed;
+    background-color: var(--background-color);
+    background-image: var(--background-image);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: var(--font-family), sans-serif;
+}
+
+.header {
+    block-size: max(668px,100vh);
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-template-rows: repeat(3,1fr);
+    padding-block: var(--padding-block);
+    padding-inline: var(--padding-inline);
+    position: relative;
+}
+
+.header__theme-menu {
+    grid-column: 1 / 3;
+}
+
+.header__theme-menu-list {
+    display: grid;
+    gap: 10px;
+    grid-template-columns: repeat(3,auto);
+    justify-content: center;
+}
+
+.header__theme-menu-item {
+    min-block-size: 26px;
+    min-inline-size: 70px;
+}
+
+.header__theme-menu-button {
+    background-color: transparent;
+    block-size: 26px;
+    border-radius: 0;
+    border: none;
+    color: var(--accent-color);
+    cursor: pointer;
+    font-style: normal;
+    line-height: 18px;
+    min-inline-size: 70px;
+    text-align: center;
+    text-transform: lowercase;
+}
+
+.header__theme-menu-button_active {
+    border: 1px solid var(--accent-color);
+    pointer-events: none;
+}
+
+.header__theme-menu-button:hover {
+    border: var(--menu-button-hover);
+}
+
+.header__theme-menu-button:focus {
+    outline: none;
+}
+
+.header__theme-menu-button:focus-visible {
+    box-shadow: 0 1px 0 var(--accent-color);
+}
+
+.record-caption {
+    color: var(--accent-color);
+    font-size: 18px;
+    line-height: 25px;
+    position: absolute;
+    right: 48px;
+    top: 20px;
+}
+
+.record-caption::after {
+    background-color: var(--accent-color);
+    border-radius: 50%;
+    box-shadow: 0 0 4px 2px var(--accent-color);
+    content: "";
+    height: 9px;
+    left: 43px;
+    position: absolute;
+    top: 8px;
+    width: 9px;
+}
+
+.record-frame::after {
+    border-right: 1px solid var(--accent-color);
+    border-top: 1px solid var(--accent-color);
+    content: "";
+    height: 25px;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    width: 25px;
+}
+
+.record-frame::before {
+    border-bottom: 1px solid var(--accent-color);
+    border-left: 1px solid var(--accent-color);
+    bottom: 20px;
+    content: "";
+    height: 25px;
+    left: 20px;
+    position: absolute;
+    width: 25px;
+}
+
+.header__title {
+    align-self: center;
+    color: var(--main-title-color);
+    font-family: inherit;
+    font-size: var(--title-font-size);
+    font-style: inherit;
+    font-weight: 700;
+    grid-column: 1 / 3;
+    line-height: 82.5%;
+    margin-inline-start: -20px;
+    text-shadow: var(--text-shadow);
+}
+
+.header__text {
+    align-self: start;
+    grid-column: 2 / 3;
+    margin-block-start: 57px;
+}
+
+.content {
+    padding-inline: var(--padding-inline);
+}
+
+.content__title {
+    color: var(--accent-color);
+    font-size: inherit;
+    font-weight: 700;
+    line-height: 130%;
+}
+
+.content__title-secondary {
+    background-color: var(--title-background-color);
+    color: var(--title-color);
+    font-weight: 700;
+    line-height: 130%;
+}
+
+.content__text {
+    color: var(--text-color);
+    margin-block-start: 10px;
+}
+
+.reasons {
+    column-gap: 20px;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    margin-block-start: var(--margin-top-l);
+    row-gap: 20px;
+}
+
+.reasons .card {
+    grid-column: 2 / 4;
+}
+
+.text__link {
+    text-shadow: 2px 2px 0 var(--link-color);
+}
+
+.text__link:hover {
+    border-bottom: 2px solid var(--text-color);
+}
+
+.text__link:focus {
+    outline: none;
+}
+
+.text__link:focus-visible {
+    outline: 1px solid var(--text-color);
+}
+
+.what {
+    column-gap: 20px;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    margin-block-start: var(--margin-top-xl);
+    row-gap: 20px;
+}
+
+.what__title {
+    grid-column: 1 / 4;
+    width: calc((100% - 40px) / 3);
+}
+
+.answers {
+    column-gap: 20px;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    margin-block-start: var(--margin-top-xl);
+    row-gap: 20px;
+}
+
+.answers__title {
+    margin-block-end: 20px;
+}
+
+.answers .card {
+    grid-column: 2 / 4;
+}
+
+.how__card_subtitle {
+    font-size: inherit;
+    font-weight: 400;
+}
+
+.gallery {
+    display: grid;
+    gap: var(--gallery-gap);
+    grid-template-columns: repeat(3,1fr);
+    margin-block-start: var(--margin-top-xl);
+}
+
+.gallery__title {
+    align-self: start;
+    grid-column: 1 / 4;
+}
+
+.gallery__card {
+    display: block;
+    height: 100%;
+    object-fit: cover;
+    width: 100%;
+}
+
+.gallery__card:nth-child(2) {
+    grid-column: 1 / 3;
+    grid-row: 2 / 3;
+}
+
+.gallery__card:nth-child(3) {
+    grid-column: 3 / 4;
+    grid-row: 2 / 4;
+}
+
+.gallery__card:nth-child(4) {
+    grid-column: 1 / 2;
+    grid-row: 3 / 5;
+}
+
+.gallery__card:nth-child(5) {
+    grid-column: 2 / 3;
+    grid-row: 3 / 4;
+}
+
+.gallery__card:nth-child(6) {
+    grid-column: 2 / 4;
+    grid-row: 4 / 5;
+}
+
+.footer {
+    align-items: center;
+    block-size: max(668px,100vh);
+    display: flex;
+    justify-content: center;
+    margin-block-start: var(--margin-top-l);
+    padding: 20px;
+    position: relative;
+}
+
+.footer__title {
+    color: var(--main-title-color);
+    font-family: inherit;
+    font-size: var(--title-font-size);
+    font-style: inherit;
+    font-weight: 700;
+    line-height: 82.5%;
+    text-shadow: var(--footer-text-shadow);
+}
+
+@media (width <= 992px) {
+    .header__theme-menu {
+        align-self: end;
+        grid-column: 2 / 3;
+        margin-block-end: 57px;
+    }
+
+    .header__theme-menu-list {
+        grid-template-columns: 1fr;
+        justify-items: end;
+    }
+
+    .header__text {
+        margin-block-start: 48px;
+    }
+
+    .reasons {
+        grid-template-columns: 1fr 2fr;
+    }
+
+    .reasons .card {
+        grid-column: 2 / 3;
+    }
+
+    .what {
+        grid-template-columns: 1fr;
+    }
+
+    .what__title {
+        grid-column: 1 / 2;
+    }
+
+    .answers {
+        grid-template-columns: 1fr 2fr;
+    }
+
+    .answers .card {
+        grid-column: 2 / 3;
+    }
+}
+
+@media (width < 768px) {
+    :root {
+        --gallery-gap: 10px;
+        --margin-top-l: 40px;
+        --margin-top-xl: 50px;
+        --padding-block: 10px;
+        --padding-inline: 10px;
+        --title-font-size: 116px;
+    }
+
+    .header {
+        grid-template-columns: 1fr;
+        justify-content: center;
+    }
+
+    .header__theme-menu {
+        grid-column: 1 / 2;
+        margin-block-end: 52px;
+    }
+
+    .header__title {
+        grid-column: 1 / 2;
+        margin-inline-start: 0;
+    }
+
+    .header__text {
+        grid-column: 1 / 2;
+        margin-block-start: 43px;
+    }
+
+    .header__rec {
+        right: 38px;
+        top: 10px;
+    }
+
+    .record-frame::after {
+        right: 10px;
+        top: 10px;
+    }
+
+    .record-frame::before {
+        bottom: 10px;
+        left: 10px;
+    }
+
+    .reasons {
+        grid-template-columns: 1fr;
+    }
+
+    .reasons .card {
+        grid-column: 1 / 2;
+    }
+
+    .answers {
+        grid-template-columns: 1fr;
+    }
+
+    .answers .card {
+        grid-column: 1 / 2;
+    }
+
+    .what__title {
+        grid-column: 1 / 2;
+        width: 100%;
+    }
+
+    .gallery {
+        grid-template-columns: 1fr;
+    }
+
+    .gallery__title {
+        grid-column: 1 / 2;
+    }
+
+    .gallery__card:nth-child(2) {
+        grid-column: 1 / 2;
+        grid-row: 2 / 3;
+    }
+
+    .gallery__card:nth-child(3) {
+        grid-column: 1 / 2;
+        grid-row: 3 / 4;
+    }
+
+    .gallery__card:nth-child(4) {
+        grid-column: 1 / 2;
+        grid-row: 4 / 5;
+    }
+
+    .gallery__card:nth-child(5) {
+        grid-column: 1 / 2;
+        grid-row: 5 / 6;
+    }
+
+    .gallery__card:nth-child(6) {
+        grid-column: 1 / 2;
+        grid-row: 6 / 7;
+    }
+
+    .footer__title {
+        font-size: 116px;
+    }
 }
