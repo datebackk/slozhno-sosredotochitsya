@@ -11,10 +11,6 @@
     --main-title-color: #db00ff;
     --menu-button-hover: 1px solid rgba(255, 0, 112, 0.4);
 
-    .content__title {
-        color: var(--accent-color);
-    }
-
     .record-caption {
         display: block;
     }

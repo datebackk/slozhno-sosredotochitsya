@@ -6,6 +6,7 @@
     background-repeat: no-repeat;
     background-size: cover;
     font-family: var(--font-family), sans-serif;
+    font-size: 18px;
 }
 
 .header {
@@ -141,6 +142,7 @@
 .content__title-secondary {
     background-color: var(--title-background-color);
     color: var(--title-color);
+    font-size: inherit;
     font-weight: 700;
     line-height: 130%;
 }
@@ -150,20 +152,9 @@
     margin-block-start: 10px;
 }
 
-.reasons {
-    column-gap: 20px;
-    display: grid;
-    grid-template-columns: repeat(3,1fr);
-    margin-block-start: var(--margin-top-l);
-    row-gap: 20px;
-}
-
-.reasons .card {
-    grid-column: 2 / 4;
-}
-
 .text__link {
     text-shadow: 2px 2px 0 var(--link-color);
+    text-decoration: none;
 }
 
 .text__link:hover {
@@ -178,33 +169,30 @@
     outline: 1px solid var(--text-color);
 }
 
-.what {
+.section {
     column-gap: 20px;
     display: grid;
-    grid-template-columns: repeat(3,1fr);
+    grid-template-columns: repeat(3, 1fr);
     margin-block-start: var(--margin-top-xl);
     row-gap: 20px;
 }
 
-.what__title {
+.section:nth-of-type(odd) .card {
+    grid-column: 2 / 4;
+    margin-block-end: 20px;
+}
+
+.section:nth-of-type(even) .section__title {
     grid-column: 1 / 4;
     width: calc((100% - 40px) / 3);
 }
 
-.answers {
-    column-gap: 20px;
-    display: grid;
-    grid-template-columns: repeat(3,1fr);
-    margin-block-start: var(--margin-top-xl);
-    row-gap: 20px;
-}
-
-.answers__title {
-    margin-block-end: 20px;
-}
-
-.answers .card {
+.section__content-container {
     grid-column: 2 / 4;
+}
+
+.section__additional-title {
+    margin-block-end: 20px;
 }
 
 .how__card_subtitle {
@@ -216,12 +204,13 @@
     display: grid;
     gap: var(--gallery-gap);
     grid-template-columns: repeat(3,1fr);
-    margin-block-start: var(--margin-top-xl);
+    margin-block-start: 60px;
 }
 
 .gallery__title {
     align-self: start;
     grid-column: 1 / 4;
+    font-size: inherit;
 }
 
 .gallery__card {
@@ -292,27 +281,23 @@
         margin-block-start: 48px;
     }
 
-    .reasons {
+    .section:nth-of-type(odd) {
         grid-template-columns: 1fr 2fr;
     }
 
-    .reasons .card {
+    .section:nth-of-type(odd) .card {
         grid-column: 2 / 3;
     }
 
-    .what {
+    .section:nth-of-type(even) {
         grid-template-columns: 1fr;
     }
 
-    .what__title {
+    .section:nth-of-type(even) .section__title {
         grid-column: 1 / 2;
     }
 
-    .answers {
-        grid-template-columns: 1fr 2fr;
-    }
-
-    .answers .card {
+    .section__content-container {
         grid-column: 2 / 3;
     }
 }
@@ -362,25 +347,25 @@
         left: 10px;
     }
 
-    .reasons {
+    .section:nth-of-type(odd) {
         grid-template-columns: 1fr;
     }
 
-    .reasons .card {
-        grid-column: 1 / 2;
+    .section:nth-of-type(odd) .card {
+        grid-column: 1 / 3;
     }
 
-    .answers {
+    .section:nth-of-type(even) {
         grid-template-columns: 1fr;
     }
 
-    .answers .card {
-        grid-column: 1 / 2;
-    }
-
-    .what__title {
-        grid-column: 1 / 2;
+    .section:nth-of-type(even) .section__title {
+        grid-column: 1;
         width: 100%;
+    }
+
+    .section__content-container {
+        grid-column: 1 / 3;
     }
 
     .gallery {
@@ -414,9 +399,5 @@
     .gallery__card:nth-child(6) {
         grid-column: 1 / 2;
         grid-row: 6 / 7;
-    }
-
-    .footer__title {
-        font-size: 116px;
     }
 }

@@ -11,10 +11,6 @@
     --text-shadow: 4px 4px 0 #ff0070;
     --footer-text-shadow: 2px 2px 0 #ff0070;
 
-    .content__title {
-        color: inherit;
-    }
-
     .record-caption {
         display: none;
     }
@@ -33,10 +29,6 @@
         --main-title-color: #ffc2e6;
         --text-shadow: 4px 4px 0 #ff0070;
         --footer-text-shadow: 2px 2px 0 #ff0070;
-    }
-
-    .content__title {
-        color: inherit;
     }
 
     .record-caption {
