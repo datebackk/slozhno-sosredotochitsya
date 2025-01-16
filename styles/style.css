@@ -1,15 +1,14 @@
 .page {
-    background-attachment: fixed;
     background-color: var(--background-color);
-    background-image: var(--background-image);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
     font-family: var(--font-family), sans-serif;
     font-size: 18px;
 }
 
 .header {
+    background-image: var(--background-image);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
     block-size: max(668px,100vh);
     display: grid;
     grid-template-columns: repeat(2,1fr);
@@ -177,8 +176,15 @@
     row-gap: 20px;
 }
 
+.section:nth-of-type(1) {
+    margin-block-start: 60px;
+}
+
 .section:nth-of-type(odd) .card {
     grid-column: 2 / 4;
+}
+
+.section:nth-of-type(odd) .section__content-container .card {
     margin-block-end: 20px;
 }
 
@@ -266,6 +272,10 @@
 }
 
 @media (width <= 992px) {
+    .header {
+        block-size: 1024px;
+    }
+
     .header__theme-menu {
         align-self: end;
         grid-column: 2 / 3;
@@ -325,6 +335,7 @@
     .header__title {
         grid-column: 1 / 2;
         margin-inline-start: 0;
+        margin-block-end: 15px;
     }
 
     .header__text {
@@ -345,6 +356,10 @@
     .record-frame::before {
         bottom: 10px;
         left: 10px;
+    }
+
+    .section:nth-of-type(1) {
+        margin-block-start: 40px;
     }
 
     .section:nth-of-type(odd) {
